@@ -31,7 +31,7 @@ console.log(val4);
 const val5 = ["あああ", "いいい", "ううう"];
 val5[0] = "えええ";
 val5.push("おおお");
-// 
+
 console.log(val5);
 
 // テンプレート文字列
