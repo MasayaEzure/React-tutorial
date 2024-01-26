@@ -2,7 +2,7 @@
 var val1 = "var宣言";
 console.log(val1);
 
-val1 = "varの上書き"
+val1 = "varの上書き";
 console.log(val1);
 
 var val1 = "varの再宣言";
@@ -155,7 +155,6 @@ const val14 = {};
 console.log(val14 ? `${val14}はtruthy` : `${val14}はfalsy`);
 
 const val15 = "";
-console.log(typeof val15);
 console.log(val15 ? `${val15}はtruthy` : `${val15}はfalsy`);
 
 const num7 = null;
