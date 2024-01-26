@@ -8,7 +8,7 @@ console.log(val1);
 var val1 = "varの再宣言";
 console.log(val1);
 
-// // 再宣言不可
+// 再宣言不可
 let val2 = "let宣言";
 console.log(val2);
 
