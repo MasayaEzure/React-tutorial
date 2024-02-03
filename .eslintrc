@@ -1,0 +1,15 @@
+{
+    "env": {
+        "browser": true,  // window, alert, document
+        "node": true,
+        "es6": true
+    },
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module"  // import, export
+    },
+    "rules": {
+        "no-unused-vars": ["warn"],
+        "linebreak-style": ["off"]
+    }
+}
