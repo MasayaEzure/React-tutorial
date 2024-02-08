@@ -1,0 +1,15 @@
+{
+  "env": {
+    "browser": true, // グローバル変数を許容する
+    "node": true,
+    "es6": true
+  },
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module" // import, exportが使える
+  },
+  "rules": {
+    "no-unused-vars": ["warn"],
+    "linebreak-style": ["off"]
+  }
+}
