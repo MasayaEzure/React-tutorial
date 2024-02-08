@@ -9,7 +9,6 @@
     "sourceType": "module" // import, exportが使える
   },
   "rules": {
-    "no-console": ["error"],
     "no-unused-vars": ["warn"],
     "linebreak-style": ["off"]
   }
