@@ -1,10 +1,12 @@
+import { Message } from "./components/Message";
+
 export function App() {
   const onClickButton = () => alert('onClickButton');
-  const contentStyle = { color: 'green', margin: 50 };
   return (
     <>
       <h1 style={{ color: 'red' }}>こんにちは！</h1>
-      <p style={contentStyle}>やっほー！</p>
+      <Message color='blue'>お元気ですか？</Message> 
+      <Message color='green'>元気ですよ！</Message>
       <button onClick={onClickButton}>ボタン</button>
     </>
   );
