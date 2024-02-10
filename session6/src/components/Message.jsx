@@ -1,4 +1,4 @@
-export const Message = ({color, children}) => {
+export const Message = ({ color, children }) => {
   // const {color, children} = props;
   const contentStyle = { color, fontSize: '18px' };
 
