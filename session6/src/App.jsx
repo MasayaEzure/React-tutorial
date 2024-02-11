@@ -20,7 +20,6 @@ export const App = () => {
     }
   }, [num]);
 
-
   return (
     <>
       <h1 style={{ color: 'red' }}>こんにちは！</h1>
