@@ -42,18 +42,14 @@ export const Todo = () => {
   };
 
   const onClickDone = (index) => {
-    // 未完了
-    deleteTodo([...incompleteTodos], index, 'incomplete');
-    // 完了
-    setCompleteTodos([...completeTodos, incompleteTodos[index]]);
+    deleteTodo([...incompleteTodos], index, 'incomplete'); // 未完了
+    setCompleteTodos([...completeTodos, incompleteTodos[index]]); // 完了
   };
 
   const onClickBack = (index) => {
     if (isMaxLimitIncompleteTodos) return;
-    // 完了
-    deleteTodo([...completeTodos], index, 'complete');
-    // 未完了
-    setIncompleteTodos([...incompleteTodos, completeTodos[index]]);
+    deleteTodo([...completeTodos], index, 'complete'); // 完了
+    setIncompleteTodos([...incompleteTodos, completeTodos[index]]); // 未完了
   };
 
   return (
