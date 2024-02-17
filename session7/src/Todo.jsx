@@ -4,6 +4,10 @@ import { IncompleteTodos } from './components/IncompleteTodos';
 import { InputTodo } from './components/InputTodo';
 import './styles.css';
 
+const messageStyle = {
+  color: 'red',
+};
+
 export const Todo = () => {
   const [todoText, setTodoText] = useState();
   const [incompleteTodos, setIncompleteTodos] = useState([]);
@@ -45,6 +49,7 @@ export const Todo = () => {
   };
 
   const onClickBack = (index) => {
+    if (isMaxLimitIncompleteTodos) return;
     // 完了
     deleteTodo([...completeTodos], index, 'complete');
     // 未完了
@@ -60,13 +65,16 @@ export const Todo = () => {
         disabled={isMaxLimitIncompleteTodos}
       />
       {isMaxLimitIncompleteTodos && (
-        <p style={{ color: 'red' }}>登録できるTODOは5個までです。</p>
+        <p style={messageStyle}>登録できるTODOは5個までです。</p>
       )}
       <IncompleteTodos
         todos={incompleteTodos}
         onClickDone={onClickDone}
         onClickDelete={onClickDelete}
       />
+      {isMaxLimitIncompleteTodos && completeTodos.length > 0 && (
+        <p style={messageStyle}>未完了が5個あるので、完了を戻せません。</p>
+      )}
       <CompleteTodos todos={completeTodos} onClickBack={onClickBack} />
     </>
   );
