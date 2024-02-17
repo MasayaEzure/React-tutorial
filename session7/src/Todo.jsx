@@ -12,37 +12,43 @@ export const Todo = () => {
   const onChangeTodoText = (event) => setTodoText(event.target.value);
   const isMaxLimitIncompleteTodos = incompleteTodos.length >= 5;
 
+  const deleteTodo = (todos, index, mode) => {
+    const newTodos = todos;
+    newTodos.splice(index, 1);
+    switch (mode) {
+      case 'incomplete':
+        setIncompleteTodos(newTodos);
+        break;
+      case 'complete':
+        setCompleteTodos(newTodos);
+        break;
+      default:
+        break;
+    }
+  };
+
   const onClickAdd = () => {
     if (!todoText) return;
-    const newTodos = [...incompleteTodos, todoText];
-    setIncompleteTodos(newTodos);
+    setIncompleteTodos([...incompleteTodos, todoText]);
     setTodoText('');
   };
 
   const onClickDelete = (index) => {
-    const newTodos = [...incompleteTodos];
-    newTodos.splice(index, 1);
-    setIncompleteTodos(newTodos);
+    deleteTodo([...incompleteTodos], index, 'incomplete');
   };
 
   const onClickDone = (index) => {
     // 未完了
-    const newIncompleteTodos = [...incompleteTodos];
-    newIncompleteTodos.splice(index, 1);
-    setIncompleteTodos(newIncompleteTodos);
+    deleteTodo([...incompleteTodos], index, 'incomplete');
     // 完了
-    const newCopleteTodos = [...completeTodos, incompleteTodos[index]];
-    setCompleteTodos(newCopleteTodos);
+    setCompleteTodos([...completeTodos, incompleteTodos[index]]);
   };
 
   const onClickBack = (index) => {
     // 完了
-    const newCompleteTodos = [...completeTodos];
-    newCompleteTodos.splice(index, 1);
-    setCompleteTodos(newCompleteTodos);
+    deleteTodo([...completeTodos], index, 'complete');
     // 未完了
-    const newIncompleteTodos = [...incompleteTodos, completeTodos[index]];
-    setIncompleteTodos(newIncompleteTodos);
+    setIncompleteTodos([...incompleteTodos, completeTodos[index]]);
   };
 
   return (
@@ -53,7 +59,9 @@ export const Todo = () => {
         onClick={onClickAdd}
         disabled={isMaxLimitIncompleteTodos}
       />
-      {isMaxLimitIncompleteTodos && (<p style={{color: 'red'}}>登録できるTODOは5個までです。</p>)}
+      {isMaxLimitIncompleteTodos && (
+        <p style={{ color: 'red' }}>登録できるTODOは5個までです。</p>
+      )}
       <IncompleteTodos
         todos={incompleteTodos}
         onClickDone={onClickDone}
