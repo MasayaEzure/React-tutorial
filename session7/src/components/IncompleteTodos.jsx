@@ -1,4 +1,4 @@
-export const IncompleteTodos = ({todos, onClickDone, onClickDelete}) => {
+export const IncompleteTodos = ({ todos, onClickDone, onClickDelete }) => {
   return (
     <div className="incomplete-area">
       <p className="title">未完了</p>

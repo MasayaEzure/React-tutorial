@@ -1,4 +1,4 @@
-export const CompleteTodos = ({todos, onClickBack}) => {
+export const CompleteTodos = ({ todos, onClickBack }) => {
   return (
     <div className="complete-area">
       <p className="title">完了</p>
